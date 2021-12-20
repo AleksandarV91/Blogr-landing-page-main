@@ -217,7 +217,7 @@ nav {
   display: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   header {
     background: url("../images/bg-pattern-intro-mobile.svg") no-repeat center,
       var(--nav-gradient);
