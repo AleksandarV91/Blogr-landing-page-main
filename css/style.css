@@ -269,8 +269,16 @@ nav {
     padding: 24px;
   }
 
-  .show .rotate {
+  .rotate {
+    transform: rotate(180deg);
+  }
+
+  .show {
     display: block;
+  }
+
+  .show .rotate {
+    display: inline;
   }
 
   .dropdown-links a {
@@ -341,15 +349,5 @@ nav {
     font-size: 18px;
     line-height: 155%;
     margin-bottom: 15px;
-  }
-}
-
-@media screen and (orientation: portrait) and (max-width: 1150px) {
-  nav {
-    padding: 56px 75px;
-  }
-
-  .dropdown-links {
-    transform: translate(175px, 75px);
   }
 }
