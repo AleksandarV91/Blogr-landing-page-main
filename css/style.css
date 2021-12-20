@@ -344,7 +344,7 @@ nav {
   }
 }
 
-@media screen and (min-width: 401px) and (max-width: 1150px) {
+@media screen and (orientation: portrait) and (max-width: 1150px) {
   nav {
     padding: 56px 75px;
   }
