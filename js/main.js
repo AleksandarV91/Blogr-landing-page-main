@@ -37,3 +37,31 @@ closeBtn.addEventListener("click", function () {
   closeBtn.classList.remove("show");
   mobileDrop.classList.remove("show");
 });
+
+// modal
+
+const modalForm = document.querySelector(".form-overlay");
+const signUpBtn = document.querySelectorAll(".sign");
+
+signUpBtn.forEach(function (modal) {
+  modal.addEventListener("click", function () {
+    modalForm.classList.add("open-form");
+  });
+});
+
+closeBtn.addEventListener("click", function () {
+  modalForm.classList.remove("open-form");
+});
+
+// Form
+
+const submitBtn = document.querySelector(".submit");
+const fName = document.querySelector(".name");
+const lName = document.querySelector(".last-name");
+const email = document.querySelector(".email");
+
+function isValid(email) {
+  let regEx =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regEx.test(String(email).toLowerCase());
+}

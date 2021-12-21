@@ -219,6 +219,97 @@ nav {
   display: none;
 }
 
+/* form modal */
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(73, 166, 233, 0.5);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  visibility: hidden;
+  z-index: -10;
+}
+/* OPEN/CLOSE MODAL */
+.open-form {
+  visibility: visible;
+  z-index: 10;
+}
+.modal-form {
+  background: var(--nav-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 125px 75px;
+  border-radius: 5px;
+}
+
+.modal-form h3 {
+  font-family: var(--overpass);
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -1.2px;
+  color: var(--white);
+}
+
+.modal-form label {
+  font-family: var(--overpass);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  color: var(--white);
+  text-align: center;
+}
+
+.submit {
+  background-color: var(--white);
+  color: var(--light-red);
+  margin-right: 15px;
+  width: 250px;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background-color: var(--very-light-red);
+  color: var(--white);
+  transition: all 0.5s ease-out;
+}
+
+.modal-form input {
+  width: 325px;
+  height: 48px;
+  border-radius: 28px;
+  display: flex;
+  border: transparent;
+  outline: transparent;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.modal-form input::placeholder {
+  font-family: var(--overpass);
+  color: var(--grayish-blue);
+}
+
+.err-msg {
+  display: none;
+  font-family: var(--ubuntu);
+  color: var(--very-dark-blue);
+}
+
+.modal-form .close {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  transform: translate(180px, -120px);
+}
+
 @media screen and (max-width: 800px) {
   header {
     background: url("../images/bg-pattern-intro-mobile.svg") no-repeat center,
