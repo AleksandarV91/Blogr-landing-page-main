@@ -29,7 +29,6 @@ mobileNav.addEventListener("click", function () {
     mobileDrop.classList.add("show");
     closeBtn.classList.add("show");
     mobileNav.style.display = "none";
-    btn.classList.add("rotate");
   }
 });
 
