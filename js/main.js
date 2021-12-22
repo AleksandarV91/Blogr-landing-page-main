@@ -24,7 +24,7 @@ dropDown.forEach(function (drop) {
 
 const mobileNav = document.querySelector(".hamburger");
 const mobileDrop = document.querySelector(".mobile-dropdown");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".close-btn");
 
 mobileNav.addEventListener("click", function () {
   if (mobileDrop.classList.contains("show")) {
