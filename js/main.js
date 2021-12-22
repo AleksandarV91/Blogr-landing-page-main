@@ -46,6 +46,7 @@ closeBtn.addEventListener("click", function () {
 
 const modalForm = document.querySelector(".form-overlay");
 const signUpBtn = document.querySelectorAll(".sign");
+const formClose = document.querySelector(".close");
 
 signUpBtn.forEach(function (modal) {
   modal.addEventListener("click", function () {
@@ -53,7 +54,7 @@ signUpBtn.forEach(function (modal) {
   });
 });
 
-closeBtn.addEventListener("click", function () {
+formClose.addEventListener("click", function () {
   modalForm.classList.remove("open-form");
 });
 
