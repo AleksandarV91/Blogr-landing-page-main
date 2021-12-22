@@ -61,6 +61,32 @@ closeBtn.addEventListener("click", function () {
 
 const form = document.getElementById("form");
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const firstname = form["firstname"].value;
+  const lastname = form["lastname"].value;
+  const emailInput = form["email"].value;
+  if (firstname === "") {
+    addError("firstname", "Please enter your first name!");
+  } else {
+    removeError("firstname");
+  }
+
+  if (lastname === "") {
+    addError("lastname", "Please enter your last name!");
+  } else {
+    removeError("lastname");
+  }
+
+  if (emailInput === "") {
+    addError("email", "Please enter your email!");
+  } else if (!isValid(emailInput)) {
+    addError("email", "Please enter a valid email!");
+  } else {
+    removeError("email");
+  }
+});
+
 function addError(field, message) {
   const formControl = form[field].parentNode;
   formControl.classList.add("error");
@@ -79,27 +105,3 @@ function isValid(email) {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const firstname = form["firstname"].value;
-  const lastname = form["lastname"].value;
-  const email = form["email"].value;
-  if (firstname === "") {
-    addError("firstname", "Please enter your first name!");
-  } else {
-    removeError("firstname");
-  }
-  if (lastname === "") {
-    addError("lastname", "Please enter your last name!");
-  } else {
-    removeError("lastname");
-  }
-  if (email === "") {
-    addError("email", "Please enter your email adderess!");
-  } else if (!isValid(email)) {
-    addError("email", "Please enter valid email adderess!");
-  } else {
-    removeError("email");
-  }
-});
