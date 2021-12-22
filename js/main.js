@@ -1,3 +1,5 @@
+// desktop nav
+
 const dropDown = document.querySelectorAll(".dropdown");
 
 dropDown.forEach(function (drop) {
@@ -17,6 +19,8 @@ dropDown.forEach(function (drop) {
     drop.classList.toggle("show-list");
   });
 });
+
+// mobile nav
 
 const mobileNav = document.querySelector(".hamburger");
 const mobileDrop = document.querySelector(".mobile-dropdown");
@@ -55,13 +59,47 @@ closeBtn.addEventListener("click", function () {
 
 // Form
 
-const submitBtn = document.querySelector(".submit");
-const fName = document.querySelector(".name");
-const lName = document.querySelector(".last-name");
-const email = document.querySelector(".email");
+const form = document.getElementById("form");
+
+function addError(field, message) {
+  const formControl = form[field].parentNode;
+  formControl.classList.add("error");
+  const small = form[field].parentNode.querySelector("small");
+  small.innerText = message;
+}
+
+function removeError(field) {
+  const formControl = form[field].parentNode;
+  formControl.classList.remove("error");
+  form[field].value = "";
+}
 
 function isValid(email) {
-  let regEx =
+  const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regEx.test(String(email).toLowerCase());
+  return re.test(String(email).toLowerCase());
 }
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const firstname = form["firstname"].value;
+  const lastname = form["lastname"].value;
+  const email = form["email"].value;
+  if (firstname === "") {
+    addError("firstname", "Please enter your first name!");
+  } else {
+    removeError("firstname");
+  }
+  if (lastname === "") {
+    addError("lastname", "Please enter your last name!");
+  } else {
+    removeError("lastname");
+  }
+  if (email === "") {
+    addError("email", "Please enter your email adderess!");
+  } else if (!isValid(email)) {
+    addError("email", "Please enter valid email adderess!");
+  } else {
+    removeError("email");
+  }
+});
